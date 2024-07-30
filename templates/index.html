@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Price & Rent Prediction</title>
+</head>
+<body>
+    <h1>Enter Property Details</h1>
+    <form action="/predict" method="post">
+        <label for="zipcode">Zipcode:</label><br>
+        <input type="text" id="zipcode" name="zipcode" required><br><br>
+
+        <label for="bedroom">Bedroom (optional):</label><br>
+        <input type="number" id="bedroom" name="bedroom"><br><br>
+
+        <label for="bathroom">Bathroom (optional):</label><br>
+        <input type="number" id="bathroom" name="bathroom"><br><br>
+
+        <label for="area">Area (optional):</label><br>
+        <input type="number" id="area" name="area"><br><br>
+
+        <label for="ppsq">PPSq (optional):</label><br>
+        <input type="number" id="ppsq" name="ppsq"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
