@@ -1,0 +1,203 @@
+body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .bg {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .bg img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            background-size: cover;
+            background-image: linear-gradient(rgba(0,0,0,0.10),rgba(0,0,0,0.10)),url(../images/pic2.jpg);
+        }
+
+        .navbar {
+            width: 100%;
+            margin: auto;
+            padding: 35px 0;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }        
+
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 125px;
+            cursor: pointer;
+        } 
+        
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .content h2 {
+            font-family: Georgia;
+            font-size: 47px;
+            font-weight: 900;
+            margin-bottom: -25px;
+        }
+
+        .content h1 {
+            font-family: Georgia;
+            font-size: 89px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .form-container .form-control {
+            border-radius: 30px;
+        }
+
+        .form-container .form-control:focus {
+            background-color: white;
+        }
+
+        .italic-placeholder::placeholder {
+            font-family: Tahoma;
+            font-style: Italic;
+            opacity: 80%;
+        }
+
+        .form-container .search {
+            width: 20px;
+            height: 20px;
+            transform: translate(-10%, -5%);
+        }
+
+        .form-container label {
+            font-family: sans-serif;
+            font-weight: 600;
+            padding-top: 10px;
+            margin-bottom: 5px;
+            color: #40404F;
+        }
+
+        .form-container select.form-control {
+            appearance: none;
+        }
+
+        .input-group .form-control:first-child {
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+
+        .input-group .input-group-append .btn {
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            background-color: white;
+            border: 1px solid #ced4da;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 180px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #0000F0;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .details-grid p {
+            margin: 0;
+            padding: 5px;
+            font-family: sans-serif;
+            color: #40404F;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+        }
+        
+        .entered-details-title {
+            font-family: Georgia;
+            color: black;
+            font-size: 30px;
+            font-weight: 900;
+        }
+        
+        .predicted-values-title {
+            font-family: Georgia;
+            color: black;
+            font-size: 30px;
+            font-weight: 900;
+            padding-top: 10px;
+        }
+
+        .predicted-values {
+            margin-top: -12px;
+        }
+
+        .predicted-values p {
+            margin: 10px 0;
+            font-family: sans-serif;
+            font-weight: bold;
+            color: #40404F;
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .predicted-values p span.amount {
+            color: #2da315;
+        }
