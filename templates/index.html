@@ -5,230 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EstiMate: Property Price & Rent Prediction</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .bg {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .bg img {
-            width: 100%;
-            height: 100vh;
-            object-fit: cover;
-            position: absolute;
-            background-size: cover;
-            background-image: linear-gradient(rgba(0,0,0,0.10),rgba(0,0,0,0.10)),url(static/images/pic2.jpg);
-        }
-
-        .navbar {
-            width: 100%;
-            margin: auto;
-            padding: 35px 0;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }        
-
-        .logo {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 125px;
-            cursor: pointer;
-        } 
-        
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-        }
-
-        .content h2 {
-            font-family: Georgia;
-            font-size: 47px;
-            font-weight: 900;
-            margin-bottom: -25px;
-        }
-
-        .content h1 {
-            font-family: Georgia;
-            font-size: 89px;
-            font-weight: 900;
-            margin-bottom: 20px;
-        }
-
-        .form-container {
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .form-container .form-control {
-            border-radius: 30px;
-        }
-
-        .form-container .form-control:focus {
-            background-color: white;
-        }
-
-        .italic-placeholder::placeholder {
-            font-family: Tahoma;
-            font-style: Italic;
-            opacity: 80%;
-        }
-
-        .form-container .search {
-            width: 20px;
-            height: 20px;
-            transform: translate(-10%, -5%);
-        }
-
-        .form-container label {
-            font-family: sans-serif;
-            font-weight: 600;
-            padding-top: 10px;
-            margin-bottom: 5px;
-            color: #40404F;
-        }
-
-        .form-container select.form-control {
-            appearance: none;
-        }
-
-        .input-group .form-control:first-child {
-            border-top-left-radius: 30px;
-            border-bottom-left-radius: 30px;
-        }
-
-        .input-group .input-group-append .btn {
-            border-top-right-radius: 30px;
-            border-bottom-right-radius: 30px;
-            background-color: white;
-            border: 1px solid #ced4da;
-        }
-
-        .clear-btn {
-            display: none;
-            border: none;
-            background: transparent;
-            font-size: 25px;
-            cursor: pointer;
-            position: absolute;
-            right: 47px;
-            top: 50%;
-            transform: translateY(-45%);
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            padding-top: 180px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4);
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .close {
-            color: #aaa;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #0000F0;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .details-grid p {
-            margin: 0;
-            padding: 5px;
-            font-family: sans-serif;
-            color: #40404F;
-            background-color: #f8f8f8;
-            border-radius: 5px;
-        }
-        
-        .entered-details-title {
-            font-family: Georgia;
-            color: black;
-            font-size: 30px;
-            font-weight: 900;
-        }
-        
-        .predicted-values-title {
-            font-family: Georgia;
-            color: black;
-            font-size: 30px;
-            font-weight: 900;
-            padding-top: 10px;
-        }
-
-        .predicted-values {
-            margin-top: -12px;
-        }
-
-        .predicted-values p {
-            margin: 10px 0;
-            font-family: sans-serif;
-            font-weight: bold;
-            color: #40404F;
-            background-color: #f8f8f8;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        
-        .predicted-values p span.amount {
-            color: #2da315;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="{{url_for("static", filename="css/style.css")}}">
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg fixed-top">
-        <img src="static/images/logo.jpg" alt="EstiMate logo" class="logo">
+        <img src="{{url_for("static", filename="images/logo.jpg")}}" alt="EstiMate logo" class="logo">
     </nav>
 
     <div class="bg">
@@ -242,11 +25,10 @@
             <form action="/predict" method="post">
                 <div class="form-group">
                     <div class="input-group">
-                        <input type="text" id="zipcode" name="zipcode" class="form-control italic-placeholder" placeholder="Enter ZIP Code" pattern="^\d{4,5}$" required oninvalid="this.setCustomValidity('Please enter a valid US ZIP Code.')" oninput="this.setCustomValidity('')">
-                        <button class="clear-btn" type="button" onclick="clearZipcode()">×</button>
+                        <input type="text" id="zipcode" name="zipcode" class="form-control italic-placeholder" placeholder="Enter ZIP Code" pattern="^\d{4,5}$" required oninvalid="this.setCustomValidity('Please enter a valid US ZIP Code (4 or 5 digits). For example: 1002 or 50023.')" oninput="this.setCustomValidity('')">
                         <div class="input-group-append">
                             <button class="btn" type="submit">
-                                <img class="search" src="static/images/search3.png" title="Search" alt="Search Icon">
+                                <img class="search" src="{{url_for("static", filename="images/search3.png")}}" title="Search" alt="Search Icon">
                             </button>
                         </div>
                     </div>
@@ -274,7 +56,7 @@
         </div>
     </div>
     
-    <div id="resultModal" class="modal">
+    <div id="resultModal" class="modal" data-price="{{ price }}" data-rent="{{ rent }}">
         <div class="modal-content">
             <span class="close">&times;</span>
             <p class="entered-details-title">Entered Details</p>
@@ -293,42 +75,6 @@
         </div> 
     </div>
 
-    <script>
-        // Show modal on page load if predictions exist
-        window.onload = function() {
-            {% if price and rent %}
-                document.getElementById('resultModal').style.display = 'block';
-            {% endif %}
-        };
-
-        // Close the modal
-        document.querySelector('.close').onclick = function() {
-            document.getElementById('resultModal').style.display = 'none';
-            window.location.href = "{{ url_for('home') }}";
-        };
-
-        // Close the modal if the user clicks outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('resultModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-                window.location.href = "{{ url_for('home') }}";
-            }
-        };
-        
-        function toggleClearButton() {
-            const clearBtn = document.querySelector('.clear-btn');
-            const zipcodeInput = document.getElementById('zipcode');
-            clearBtn.style.display = zipcodeInput.value ? 'block' : 'none';
-        }
-
-        function clearZipcode() {
-            const zipcodeInput = document.getElementById('zipcode');
-            zipcodeInput.value = '';
-            toggleClearButton();
-        }
-             
-    </script>
-
+    <script src="{{url_for("static", filename="js/script.js")}}"></script>
 </body>
 </html>
