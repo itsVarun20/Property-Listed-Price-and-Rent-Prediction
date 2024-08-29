@@ -37,6 +37,36 @@ The following machine-learning algorithms are employed in this project:
 * `scaler_rent.pkl`: Scaler used for normalizing rental price data
 * `README.md`: This file
 
+## Instructions for Running the Web Application
+
+To access and run the web application on your device, please follow these steps:
+
+### Step 1: Clone or Download the Repository
+- **Clone the repository** using the following command in your terminal:
+    ```bash
+    git clone <repository_url>
+    ```
+- Alternatively, **download the repository as a ZIP file** and extract it to your desired location.
+
+### Step 2: Open the Jupyter Notebook
+- Navigate to the repository folder and open the `app.ipynb` file using Jupyter Notebook.
+
+### Step 3: Install Required Libraries
+If not already installed, you need to install the following Python libraries:
+- **Flask**: Run `pip install Flask`
+- **Joblib**: Run `pip install joblib`
+
+You can install them directly from the Jupyter Notebook or through your terminal.
+
+### Step 4: Run the Web Application
+- In the `app.ipynb` notebook, locate and run the main code block that initializes the Flask application.
+- Upon execution, you will receive an HTTP link in the output.
+
+### Step 5: Access the Web Application
+- Click on the HTTP link provided in the notebook output.
+- This link will open the web application in your web browser.
+- You can now interact with the application and test its features.
+
 ## Web Application Snapshots
 
 ![3](https://github.com/user-attachments/assets/74451729-c402-4c58-836d-0ae7db29caa5)
